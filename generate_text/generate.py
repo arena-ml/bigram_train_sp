@@ -5,20 +5,17 @@ import time
 import pickle
 from bigram_model import BigramLanguageModel
 
-vocab_path = '/app/sharedDirectory/vocab_size.txt'
+vocab_path = 'vocab_size.txt'
 
 # Load vocab size
 with open(vocab_path, 'r') as f:
     vocab_size = int(f.read())
 
 # Path to your model
-model_path = '/app/sharedDirectory/bigram_language_model_full.pth'
+model_path = 'bigram_language_model_full.pth'
 
-# Load the dictionaries from files
-with open('/app/sharedDirectory/string_to_int.pkl', 'rb') as f:
-    string_to_int = pickle.load(f)
 
-with open('/app/sharedDirectory/int_to_string.pkl', 'rb') as f:
+with open('int_to_string.pkl', 'rb') as f:
     int_to_string = pickle.load(f)
 
 # Load the saved model weights into the initialized model
@@ -34,3 +31,6 @@ generated_text = ''.join([int_to_string[idx.item()] if idx.item() < vocab_size e
 print("Generated text:")
 print(generated_text)
 
+# Save the generated text to a file
+with open("test_prompt.txt", "w") as file:
+    file.write(generated_text)
