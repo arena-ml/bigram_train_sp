@@ -1,0 +1,20 @@
+# Start with a lightweight base image
+FROM python:3.9-slim
+
+# Install system dependencies (if necessary)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PyTorch and NumPy at build time
+RUN pip install --no-cache-dir torch numpy
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Python scripts and shared directory
+COPY train_bigram/ /app/
+
+CMD ["sh", "-c", "chmod +x setup_train.sh && ./setup_train.sh"]
+
+
