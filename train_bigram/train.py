@@ -9,7 +9,7 @@ import os  # Import os module
 import time 
 
 # Path to your data
-data_path = '/app/sharedDirectory/processed_data.pt'
+data_path = 'processed_data.pt'
 
 # Load preprocessed data
 data = torch.load(data_path, weights_only=True)
@@ -20,7 +20,7 @@ train_data = data[:n]
 val_data = data[n:]
 
 # Load vocab size
-with open('/app/sharedDirectory/vocab_size.txt', 'r') as f:
+with open('vocab_size.txt', 'r') as f:
     vocab_size = int(f.read())
 
 # Define function to get batches of data
@@ -63,6 +63,6 @@ for iter in range(max_iters):
     optimizer.step()
 
 # Save the entire model (architecture + weights)
-torch.save(model, '/app/sharedDirectory/bigram_language_model_full.pth')
-print("Model training complete. Model saved in sharedDirectory.")
+torch.save(model, 'bigram_language_model_full.pth')
+print("Model training complete. Model saved as bigram_language_model_full.pth")
 
