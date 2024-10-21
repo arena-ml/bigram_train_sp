@@ -9,9 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install PyTorch and NumPy at build time
 RUN pip install --no-cache-dir torch numpy
 
-WORKDIR /app
+# to build img using this dockerfile
+# "docker build -f Dockerfile.pipelineImg -t bigram_sp ."
 
-COPY generate_text/ /app/
-
-CMD ["sh", "-c", "chmod +x setup_generate.sh && ./setup_generate.sh"]
 
