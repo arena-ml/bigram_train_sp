@@ -2,4 +2,4 @@
 echo "Running generate.py..."
 python generate.py
 
-move test_prompt.txt ${OUTPUT_DIR}/generated_text/test_prompt.txt
+mv test_prompt.txt ${OUTPUT_DIR}/generated_text/
