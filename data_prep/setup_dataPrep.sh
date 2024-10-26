@@ -14,8 +14,8 @@ python data_prep.py
 #move output to sharedDir
 echo "moving output to ${OUTPUT_DIR}/pre_processed_data/ "
 
-mv processed_data.pt ${INPUT_DIR}/raw_data/train_bigram/
-mv vocab_size.txt ${INPUT_DIR}/raw_data/train_bigram/
-mv string_to_int.pkl ${INPUT_DIR}/raw_data/train_bigram/
-mv int_to_string.pkl ${INPUT_DIR}/raw_data/train_bigram/
-mv ${INPUT_DIR}/raw_data/* ${OUTPUT_DIR}/pre_processed_data/
+mv processed_data.pt ${INPUT_DIR}/model_repo/train_bigram/
+mv vocab_size.txt ${INPUT_DIR}/model_repo/train_bigram/
+mv string_to_int.pkl ${INPUT_DIR}/model_repo/train_bigram/
+mv int_to_string.pkl ${INPUT_DIR}/model_repo/train_bigram/
+mv ${INPUT_DIR}/model_repo/* ${OUTPUT_DIR}/pre_processed_data/
