@@ -8,4 +8,4 @@ mv vocab_size.txt  ${INPUT_DIR}/train_bigram/pre_processed_data/generate_text/
 mv int_to_string.pkl  ${INPUT_DIR}/train_bigram/pre_processed_data/generate_text/
 
 # moving repo to output
-mv ${INPUT_DIR}/train_bigram/pre_processed_data/* ${OUTPUT_DIR}/trained_bigram/
+mv ${INPUT_DIR}/train_bigram/pre_processed_data/generate_text/ ${OUTPUT_DIR}/trained_bigram/

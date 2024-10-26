@@ -18,4 +18,7 @@ mv processed_data.pt ${INPUT_DIR}/model_repo/train_bigram/
 mv vocab_size.txt ${INPUT_DIR}/model_repo/train_bigram/
 mv string_to_int.pkl ${INPUT_DIR}/model_repo/train_bigram/
 mv int_to_string.pkl ${INPUT_DIR}/model_repo/train_bigram/
-mv ${INPUT_DIR}/model_repo/* ${OUTPUT_DIR}/pre_processed_data/
+
+#moving only relevant part to next stage
+mv ${INPUT_DIR}/model_repo/train_bigram/ ${OUTPUT_DIR}/pre_processed_data/
+mv ${INPUT_DIR}/model_repo/generate_text/ ${OUTPUT_DIR}/pre_processed_data/
