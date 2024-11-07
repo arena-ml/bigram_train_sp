@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PyTorch and NumPy at build time
-RUN pip install --no-cache-dir torch==2.4.1 numpy
+RUN pip install --no-cache-dir torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir numpy
 
 # to build img using this dockerfile
 # "docker build -f Dockerfile.pipelineImg -t bigram_sp ."
