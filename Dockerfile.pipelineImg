@@ -1,15 +1,18 @@
 # Start with a lightweight base image
 FROM python:3.9-slim
 
+# Set environment variables for optimization
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONOPTIMIZE=1
+ENV PIP_NO_CACHE_DIR=1
 # Install system dependencies (if necessary)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install PyTorch and NumPy at build time
-RUN pip install --no-cache-dir torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
-RUN pip install --no-cache-dir numpy
-
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential \
+    && pip install --no-cache-dir torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu \
+	&& pip install --no-cache-dir numpy \
+    && apt-get remove -y build-essential \
+    && apt-get autoremove -y \
+	&& apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/* /root/.cache/pip
 # to build img using this dockerfile
 # "docker build -f Dockerfile.pipelineImg -t bigram_sp ."
 
