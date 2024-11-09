@@ -51,7 +51,7 @@ jobs:
           file: ./Dockerfile.pipelineImg
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.IMAGE_NAME }}:latest
           labels: stable
 
       - name: Generate artifact attestation
