@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/devashishraj/bigram_train_sp
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
@@ -51,7 +51,7 @@ jobs:
           file: ./Dockerfile.pipelineImg
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+          tags: "ghcr.io/devashishraj/bigram_train_sp:latest"
           labels: stable
 
       - name: Generate artifact attestation
