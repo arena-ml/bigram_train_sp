@@ -11,5 +11,7 @@ Pipeline trains Bigram Language Model using PyTorch. A bigram language model pre
 
 NOTE: use dockerFile to build image required for pipeline
 
-reference used : https://github.com/karpathy/ng-video-lecture
+##### references :
+
+- https://github.com/karpathy/ng-video-lecture
 
